@@ -1,12 +1,53 @@
-# React + Vite
+# User Table App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовое задание: приложение для отображения и управления таблицей пользователей.
 
-Currently, two official plugins are available:
+## Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+В приложении реализована таблица с информацией о пользователях, получаемых через HTTP-запросы к [DummyJSON Users API](https://dummyjson.com/docs/users). Доступны сортировка, пагинация, просмотр подробной информации и изменение ширины столбцов.
 
-## Expanding the ESLint configuration
+## Функционал
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Таблица пользователей**: фамилия, имя, отчество, возраст, пол, телефон, email, страна, город
+- **Сортировка**: по любому столбцу (ФИО, возраст, пол, телефон, город и др.), три состояния (по возрастанию, по убыванию, без сортировки)
+- **Постраничный вывод**: пагинация
+- **Модальное окно**: подробная информация о пользователе (ФИО, возраст, адрес, рост, вес, телефон, email, аватар)
+- **Обработка ошибок**: отображение ошибок при работе с API
+- **Изменение ширины столбцов**: drag для изменения ширины, минимальная ширина — 50px
+- **Адаптивность**: горизонтальный скролл для таблицы на экранах <1400px
+
+## Технологии
+
+- React
+- Vite
+- TailwindCSS
+- Fetch API
+
+## Запуск
+
+1. Установите зависимости:
+   ```bash
+   npm install
+   ```
+2. Запустите проект:
+   ```bash
+   npm run dev
+   ```
+3. Откройте [http://localhost:5173](http://localhost:5173) в браузере
+
+## Структура проекта
+
+- `src/pages/MainPage.jsx` — основной компонент страницы
+- `src/components/UserTable.jsx` — таблица пользователей
+- `src/components/TablePagination.jsx` — пагинация
+- `src/components/UserModal.jsx` — модальное окно
+- `src/api/userApi.js` — работа с API
+
+## Примечания
+
+- Для сортировки по "City" используется клиентская сортировка, так как API не поддерживает сортировку по вложенным полям.
+- Для остальных столбцов сортировка происходит на сервере.
+
+---
+
+Автор: [Smurfov](https://github.com/smurfov)

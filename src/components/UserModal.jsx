@@ -1,49 +1,30 @@
-// UserModal.jsx
-
 export default function UserModal({ user, onClose }) {
 	if (!user) return null
 	return (
-		<div
-			style={{
-				position: 'fixed',
-				top: 0,
-				left: 0,
-				right: 0,
-				bottom: 0,
-				background: 'rgba(0,0,0,0.3)',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-			}}
-		>
-			<div
-				style={{
-					background: '#fff',
-					padding: 24,
-					borderRadius: 8,
-					minWidth: 300,
-					maxWidth: 400,
-				}}
-			>
-				<button onClick={onClose} style={{ float: 'right' }}>
-					Закрыть
+		<div className='fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50'>
+			<div className='bg-white mx-3 p-6 rounded-lg min-w-[300px] max-w-[400px] relative shadow-lg'>
+				<button
+					onClick={onClose}
+					className='absolute top-2 right-2 text-gray-500 hover:text-gray-700'
+				>
+					Close
 				</button>
-				<h2>
+				<h2 className='text-xl font-semibold mb-2 text-gray-500'>
 					{user.lastName} {user.firstName} {user.maidenName}
 				</h2>
 				<img
 					src={user.image}
 					alt='avatar'
-					style={{ width: 80, borderRadius: '50%' }}
+					className='w-20 h-20 rounded-full mx-auto mb-2 object-cover'
 				/>
-				<p>Возраст: {user.age}</p>
-				<p>Рост: {user.height} см</p>
-				<p>Вес: {user.weight} кг</p>
-				<p>Телефон: {user.phone}</p>
-				<p>Email: {user.email}</p>
-				<p>Страна: {user.address?.country}</p>
-				<p>Город: {user.address?.city}</p>
-				<p>Адрес: {user.address?.address}</p>
+				<p className='text-gray-500'>Age: {user.age}</p>
+				<p className='text-gray-500'>Height: {user.height} см</p>
+				<p className='text-gray-500'>Weight: {user.weight} кг</p>
+				<p className='text-gray-500'>Phone: {user.phone}</p>
+				<p className='text-gray-500'>Email: {user.email}</p>
+				<p className='text-gray-500'>Country: {user.address?.country}</p>
+				<p className='text-gray-500'>City: {user.address?.city}</p>
+				<p className='text-gray-500'>Address: {user.address?.address}</p>
 			</div>
 		</div>
 	)
